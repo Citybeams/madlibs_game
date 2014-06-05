@@ -14,12 +14,20 @@ var currentPrompt = 0;
 
 //A function that will call the nextPrompt
 var nextPrompt = function(){
+  if (currentPrompt < prompts.length){
   // put first prompt in all html elements with class prompt
   $('.prompt').html(prompts[currentPrompt]);
   currentPrompt++;
+  } else {
+    //puts a new message in the html
+    $('.prompt').html("that's all for now!");
+  }
 }
 
 //run nextPrompt function when button is clicked
 $('button').click(function() {
   nextPrompt();
 });
+
+//Show the first prompt as soon as js loads
+nextPrompt();

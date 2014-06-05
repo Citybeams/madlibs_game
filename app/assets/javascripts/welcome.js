@@ -2,11 +2,24 @@
 // # All this logic will automatically be available in application.js.
 // # You can use CoffeeScript in this file: http://coffeescript.org/
 
+
 var prompts = [
     'Type your name',
     'Type an adjective',
     'Type a noun'
     ];
 
+//keep track of current prompt we're on
+var currentPrompt = 0;
 
-$('.prompt').html(prompts[1]);
+//A function that will call the nextPrompt
+var nextPrompt = function(){
+  // put first prompt in all html elements with class prompt
+  $('.prompt').html(prompts[currentPrompt]);
+  currentPrompt++;
+}
+
+//run nextPrompt function when button is clicked
+$('button').click(function() {
+  nextPrompt();
+});
